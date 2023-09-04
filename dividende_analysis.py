@@ -4,7 +4,7 @@ import dfc_aker as dfc
 # Hent data for Apple fra Yahoo Finance
 
 tick = "AAPL"
-key = "ecd6d371f7dd586779188ceb26f27a72"
+key = "Din API-key. Gå til FinancialModelingPrep.com"
 apple = yf.Ticker("AAPL")
 
 # Hent utbyttehistorikk
