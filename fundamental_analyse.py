@@ -3,9 +3,9 @@ import matplotlib.pyplot as plt
 import pandas as pd
 import yfinance as yf
 import web_finans as fs
-#import dfc_aker as dfc
-#import dividende_analysis as da
-#import multiple_analysis as ma
+import dfc_aker as dfc
+import dividende_analysis as da
+import multiple_analysis as ma
 # Hent data for Apple fra Yahoo Finance
 
 tick = "AAPL"
@@ -17,10 +17,10 @@ latest_price = apple.history(period="1d")["Close"].iloc[0]
 
 
 # Simulerte verdier for aksjeverdien og testmetodene
-aksjeverdi_nå = 189 #latest_price
-testmetode_2 = 200 #dfc.rating
-testmetode_3 = 180# ma.gjennomsnittlig_pris
-testmetode_4 = 20 #da.dividende_resultat
+aksjeverdi_nå = latest_price
+testmetode_2 = dfc.rating
+testmetode_3 = ma.gjennomsnittlig_pris
+testmetode_4 = da.dividende_resultat
 
 # Beregning av vektede verdier
 vekt_2 = 0.6
