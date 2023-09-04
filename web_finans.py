@@ -1,12 +1,10 @@
-#!/usr/bin/env python3
-""" Available functions to scrape data
- when needed from Financial modeling Prep."""
+
 import requests
 import pandas as pd
 
 
 def get_income_statement(ticker, limit, key, period):
-    """Get the Income Statement."""
+   
     URL = 'https://financialmodelingprep.com/api/v3/income-statement/'
     try:
         r = requests.get(
@@ -23,7 +21,7 @@ def get_income_statement(ticker, limit, key, period):
 
 
 def get_balance_sheet(ticker, limit, key, period):
-    """Get the Balance sheet."""
+   
     URL = 'https://financialmodelingprep.com/api/v3/balance-sheet-statement/'
     try:
         r = requests.get(
@@ -40,7 +38,7 @@ def get_balance_sheet(ticker, limit, key, period):
 
 
 def get_cash_flow_statement(ticker, limit, key, period):
-    """Get the Cash flow statements."""
+    
     URL = 'https://financialmodelingprep.com/api/v3/cash-flow-statement/'
     try:
         r = requests.get(
@@ -98,7 +96,7 @@ def get_key_metrics(ticker, limit, key):
 
 
 def get_quote(ticker, key):
-    """Getting the current quote of the company."""
+   
     URL = 'https://financialmodelingprep.com/api/v3/quote/'
     try:
         r = requests.get('{}{}?apikey={}'.format(URL,
@@ -111,7 +109,7 @@ def get_quote(ticker, key):
 
 
 def get_industry_multiples():
-    """Getting the Industry Multiples value from NYU. """
+    
     URL = 'https://pages.stern.nyu.edu/~adamodar/New_Home_Page/datafile/vebitda.html'
     df = pd.read_html(URL)[0]
     df = df.rename(columns=df.iloc[1])
