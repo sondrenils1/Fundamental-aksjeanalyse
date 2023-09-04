@@ -5,13 +5,11 @@ import web_finans as fs
 import requests
 
 
-# Code to execute when this script is run as the main program
 
-# Define the ticker symbol for Apple Inc.
 tick = "AAPL"
 stock_data = yf.Ticker(tick)
-# Fetch historical stock price data for Apple Inc. (adjust the period as needed)
-key = "ecd6d371f7dd586779188ceb26f27a72"
+
+key = "Din API-key. Gå til FinancialModelingPrep.com"
 
 IM = fs.get_industry_multiples()
 
@@ -28,7 +26,7 @@ CF = fs.get_cash_flow_statement(ticker = tick, limit = 5, key = key, period = 'q
 inflation_target = 0.02
 
 def cost_of_equity():
-    # Define the risk-free rate (use the 10-year U.S. Treasury rate as proxy)
+    
     """yield_us = yf.Ticker("^TNX")
     yield_now = yield_us.history(period="1d")["Close"].iloc[0]
 
@@ -37,14 +35,14 @@ def cost_of_equity():
 
 
 
-    # Calculate the beta of the stock
+   
     stock_beta = stock_data.info["beta"]
     #print(stock_beta)
 
-    # Define the market risk premium (historical or assumed)
+)
     market_risk_premium = 0.057  # 5.7%
 
-    # Calculate the Cost of Equity (Re) using CAPM
+    
     coe = inflation_target + (stock_beta * (market_risk_premium))
 
     return coe
@@ -60,9 +58,9 @@ def cost_of_debt():
 
 
 
-def cash_flow():
+"""def cash_flow():
     FCFF = (sum(IS.loc['netIncome'][0:5]) + sum(IS.loc['interestExpense'][0:5]) + sum(IS.loc['incomeTaxExpense'][0:5]))*(1-0.21) - (sum(CF.loc['capitalExpenditure'][0:5]) - full_financial_statement.loc['depreciationdepletionandamortization'][0:5].sum()) -  sum(CF.loc['changeInWorkingCapital'][0:5])
-    return FCFF/1000000000
+    return FCFF/1000000000"""
 
 def WACC():
     equity = BS.loc["totalEquity"][0]
@@ -144,37 +142,24 @@ def excpected_free_cash_flow():
     return Expected_FCFF """
 
 
-def calculate_terminal_value():
-    '''number_years: the number of years that you will discount back to the present from terminal value calculation'''
+def calculate_terminal_value():''
     """if 0.03 < WACC():
-        print('Stable Growth is ', 0.03, 'and the new Weighted Average Cost of Capital is ', WACC())
-        print('Gordons model assumption is incorrect.. thus use a multiple')
-        # Assuming that the market will grow at 3% a year indefinitley...
-        # Reinvestment Growth Rate
-        # Adjust your Return on Capital (Recalculate WACC from previously)
-        stable_reinvestment_rate = 0.03 / WACC()
-        # Incorporating Terminal value numbers here
 
-        # Expected After Tax Operating Income in Year 6 (Using stable growth)
+        
         TV_ATOI = excpected_free_cash_flow().iloc[0,-1] * (1 + 0.03)
         
-        # Reinvestment Rate in Year 6
+       
         TV_Reinvestment = TV_ATOI * stable_reinvestment_rate
         
-        # New Free Cash Flow to Firm in Year 6
+        
         FCFF_Final = TV_ATOI - TV_Reinvestment
         
-        # Terminal Value at end of year 5
-        # HOWEVER, if DISCOUNT RATE IS < GROWTH RATE, then the calculation of Terminal Value is USELESS! Use a multiple instead (EV/EBIT)
+       
         TV = FCFF_Final / (WACC() - 0.03) # wher
-            # Discount this to present (in this case 5 years)
         Terminal_Value = (TV / (1 + WACC())**(len(excpected_free_cash_flow().columns) - 1))
         print('Used Gordons way of calculating Terminal Value')
         return(Terminal_Value)
     else:
-        # Getting the multiples from: http://pages.stern.nyu.edu/~adamodar/New_Home_Page/datafile/vebitda.html
-        # DPZ is in the restaurant business.
-        # Ratio used for positive EBITDA
         print('Used Relative Terminal Value')
         Terminal_Value = (float(IM.loc['Software (System & Application)']['EV/EBIT'][0]) * excpected_free_cash_flow().iloc[2,-1]) /(1+WACC())**number_years
         return(Terminal_Value)"""
