@@ -10,7 +10,7 @@ stock_data = yf.Ticker(tick)
 
 
 
-key = "ecd6d371f7dd586779188ceb26f27a72"
+key = "Din API-key. Gå til FinancialModelingPrep.com"
 
 IM = fs.get_industry_multiples()
 
